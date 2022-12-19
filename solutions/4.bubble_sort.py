@@ -1,10 +1,34 @@
-def bubleSort(l):
-    for i in range(len(l) - 1):
-        for j in range(len(l) - 1):
-            if l[j] > l[j + 1]:
-                l[j] = l[j] + l[j + 1]
-                l[j + 1] = l[j] - l[j + 1]
-                l[j] = l[j] - l[j + 1]
-    print(l)
+#!/bin/python3
 
-bubleSort([1, 4, 7, 3, 55, 9])
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countSwaps' function below.
+#
+# The function accepts INTEGER_ARRAY a as parameter.
+#
+
+def countSwaps(a):
+    l = len(a)
+    swaps = 0
+    for i in range(l):
+        for j in range(l - 1):
+            if a[j] > a[j+1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+                swaps+=1
+    print(f"Array is sorted in {swaps} swaps.")
+    print(f"First Element: {a[0]}")
+    print(f"Last Element: {a[-1]}")
+    
+    return 
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    a = list(map(int, input().rstrip().split()))
+
+    countSwaps(a)
