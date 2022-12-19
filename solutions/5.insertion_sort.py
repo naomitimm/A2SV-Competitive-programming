@@ -1,16 +1,30 @@
-def insertionSort(numbers):
-    for index in range(1, len(numbers)):
-        current = numbers[index]
-        previous = index - 1
+#
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY arr
+#
 
-        while(previous >= 0 and numbers[previous] > current):
-            (numbers[previous], numbers[previous + 1]) = (numbers[previous + 1], numbers[previous])
-            previous = previous - 1
+def insertionSort1(n, arr):
+    num = arr[-1]
 
-    print(numbers)
+    i = n-1
+    while i>=0:
+        if arr[i]>num:
+            print(*arr[:i], arr[i], *arr[i:-1])
+            if i==0:
+                print(num, *arr[:-1])
 
-nums = [3, 1, 8, 6, 2]
-insertionSort(nums)
+        elif arr[i]<num:
+            print(*arr[:i+1], num, *arr[i+1:-1])
+            break
+
+        i-=1
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort1(n, arr)
         
         
             
