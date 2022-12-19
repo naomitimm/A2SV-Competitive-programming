@@ -1,14 +1,39 @@
-import numpy as np
-def countingSort(numbers):
+#!/bin/python3
 
-    max = np.max(numbers)
-    arr = [0 for _ in range(max + 1)]
+import math
+import os
+import random
+import re
+import sys
 
-    for number in numbers:
-        arr[number] += 1
-    
-    print(arr)
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
 
-countingSort([4, 1, 3, 4, 6, 6])
+def countingSort(arr):
+    numbers = [0 for _ in range(100)]
+
+    for num in arr:
+        numbers[num]+=1
+
+    return numbers
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
 
 
